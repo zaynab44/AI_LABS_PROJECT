@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mental Health AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+        🌿 Mental Health AI
+        <span>Your safe space to talk and heal</span>
+    </header>
+
+    <!-- Chat Area -->
+    <div class="chat-container">
+        {% if user %}
+        <div class="message user-message">
+            {{ user }}
+        </div>
+        {% endif %}
+
+        {% if response %}
+        <div class="message bot-message">
+            {{ response }}
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Input Area -->
+    <form method="POST" class="input-container">
+        <input 
+            type="text" 
+            name="message" 
+            placeholder="Share how you're feeling..."
+            required
+        >
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+</body>
+</html>
